@@ -23,22 +23,7 @@
 
 
 class Solution:
-    def mySqrt(self, x):
-        """
-        :type x: int
-        :rtype: int
-        """
-        '''
-        i, j = 0, int(x/2) + 1
-        while i <= j:
-            tmp = int((i+j)/2)
-            if tmp ** 2 <= x < (tmp + 1) ** 2:
-                return tmp
-            elif x < tmp ** 2:
-                j = tmp - 1
-            elif x >= (tmp + 1) ** 2:
-                i = tmp + 1
-        return
-        '''
+    def mySqrt(self, x: int) -> int:
         import math
         return int(math.sqrt(x))
+        

@@ -24,26 +24,41 @@
 
 
 class Solution:
-    def canJump(self, nums):
-        '''
-        if len(nums) <= 1:
+    def canJump(self, nums: List[int]) -> bool:
+        #method 1
+        # res = [False] * len(nums)
+        # res[0] = True
+        # for i in range(len(nums)):
+        #     if res[i] is False:
+        #         return False
+        #     else:
+        #         for j in range(nums[i] + 1):
+        #             if i + j < len(res):
+        #                 res[i + j] = True
+        # return res[-1]
+        #method 2
+        if len(nums) == 1:
             return True
-        res = [0] * len(nums)
-        res[0] = 1
-        for i in range(len(nums)):
-            if res[i] == 0:
+        last_ind = len(nums) - 1
+        while True:
+            flag = 0
+            for i in range(last_ind - 1, -1, -1):
+                if nums[i] + i >= last_ind:
+                    last_ind = i
+                    flag = 1
+                    break
+            if last_ind == 0:
+                return True
+            elif flag == 0:
                 return False
-            else:
-                for j in range(1, nums[i]+1):
-                    if i + j >= len(res) - 1:
-                        return True
-                    else:
-                        res[i+j] = 1
-        '''
+        # method 3
         # if nums[i] can be reached, then nums[i-1] can be reached too
-        goal = len(nums) - 1
-        for i in range(len(nums))[::-1]:
-            if i + nums[i] >= goal:
-                goal = i
-        return not goal
+        # goal = len(nums) - 1
+        # for i in range(len(nums))[::-1]:
+        #     if i + nums[i] >= goal:
+        #         goal = i
+        # return not goal  
+
+    
+
         

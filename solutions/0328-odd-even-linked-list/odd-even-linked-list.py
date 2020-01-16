@@ -32,23 +32,42 @@
 #         self.next = None
 
 class Solution:
-    def oddEvenList(self, head):
-        """
-        :type head: ListNode
-        :rtype: ListNode
-        """
-        if head is None: 
-            return head
-        oddHead = head
-        evenHead = head.next
-        odd = oddHead
-        even = evenHead
+    def oddEvenList(self, head: ListNode) -> ListNode:
+        # if head is None:
+        #     return head
+        # dummy = ListNode(0)
+        # dummy.next = head
+        # even = ListNode(0)
+        # dummy_even = even
+        # while head.next:
+        #     print(head.val, even.val)
+        #     even.next = head.next
+        #     head.next = head.next.next
+        #     even = even.next
+        #     if head.next is None:
+        #         break
+        #     else:
+        #         head = head.next
+        # even.next = None
+        # head.next = dummy_even.next
+        # return dummy.next
+        if head == None:
+            return None 
         
-        while even and even.next:
+        odd = head
+        even_head = head.next
+        even = even_head
+        
+        while (even and even.next):
+            
+            # Odd values 
             odd.next = even.next
             odd = odd.next
+            
+            # Even Values
             even.next = odd.next
             even = even.next
-        odd.next = evenHead
         
-        return oddHead
+        odd.next = even_head
+        
+        return head

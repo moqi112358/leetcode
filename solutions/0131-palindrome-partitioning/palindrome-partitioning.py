@@ -16,6 +16,10 @@
 
 
 class Solution:
+    """
+    @param: s: A string
+    @return: A list of lists of string
+    """
     def __init__(self):
         self.res = []
         self.l = 0
@@ -40,11 +44,4 @@ class Solution:
         self.res = res
         return
     def check(self,s):
-        i, j = 0, len(s) - 1
-        while i <= j:
-            if s[i] == s[j]:
-                i += 1
-                j -= 1
-            else:
-                return False
-        return True
+        return s == s[::-1]

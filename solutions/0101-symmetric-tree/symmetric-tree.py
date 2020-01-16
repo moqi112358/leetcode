@@ -37,22 +37,19 @@
 #         self.right = None
 
 class Solution:
-    def isSymmetric(self, root):
-        """
-        :type root: TreeNode
-        :rtype: bool
-        """
+    def isSymmetric(self, root: TreeNode) -> bool:
         if root is None:
             return True
-        else:
-            return self.isMirror(root.left, root.right)
+        return self.isMirror(root.left, root.right)
+    
     def isMirror(self, left, right):
         if left is None and right is None:
             return True
         elif left is None or right is None:
             return False
-        if left.val != right.val:
-            return False
         else:
-            return self.isMirror(left.left, right.right) and self.isMirror(left.right, right.left)
+            if left.val != right.val:
+                return False
+            else:
+                return self.isMirror(left.left, right.right) and self.isMirror(left.right, right.left)
         
