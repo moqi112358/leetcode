@@ -16,58 +16,39 @@
 # Output: 2->3->6->7->1->5->4->NULL
 #
 #
-# Note:
+#  
+# Constraints:
 #
 #
 # 	The relative order inside both the even and odd groups should remain as it was in the input.
 # 	The first node is considered odd, the second node even and so on ...
+# 	The length of the linked list is between [0, 10^4].
 #
 #
 
 
 # Definition for singly-linked list.
 # class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
-
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 class Solution:
     def oddEvenList(self, head: ListNode) -> ListNode:
-        # if head is None:
-        #     return head
-        # dummy = ListNode(0)
-        # dummy.next = head
-        # even = ListNode(0)
-        # dummy_even = even
-        # while head.next:
-        #     print(head.val, even.val)
-        #     even.next = head.next
-        #     head.next = head.next.next
-        #     even = even.next
-        #     if head.next is None:
-        #         break
-        #     else:
-        #         head = head.next
-        # even.next = None
-        # head.next = dummy_even.next
-        # return dummy.next
-        if head == None:
-            return None 
-        
+        if not head:
+            return None
+        even = ListNode(0)
         odd = head
-        even_head = head.next
-        even = even_head
+        even_head = even
+        while head and head.next:
+            even_head.next = head.next
+            even_head = even_head.next
+            if head.next.next:
+                head.next = head.next.next
+                head = head.next
+            else:
+                break
+        even_head.next = None
+        head.next = even.next
+        return odd
         
-        while (even and even.next):
-            
-            # Odd values 
-            odd.next = even.next
-            odd = odd.next
-            
-            # Even Values
-            even.next = odd.next
-            even = even.next
-        
-        odd.next = even_head
-        
-        return head
+                

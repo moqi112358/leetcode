@@ -49,5 +49,6 @@ class Solution:
                 if i.right:
                     tmp.append(i.right)
             queue = tmp
-        res.reverse()
-        return res
+        return res[::-1]
+
+

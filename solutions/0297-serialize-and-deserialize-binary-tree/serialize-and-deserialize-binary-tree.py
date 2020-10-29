@@ -2,23 +2,44 @@
 #
 # Design an algorithm to serialize and deserialize a binary tree. There is no restriction on how your serialization/deserialization algorithm should work. You just need to ensure that a binary tree can be serialized to a string and this string can be deserialized to the original tree structure.
 #
-# Example: 
+# Clarification: The input/output format is the same as how LeetCode serializes a binary tree. You do not necessarily need to follow this format, so please be creative and come up with different approaches yourself.
+#
+#  
+# Example 1:
 #
 #
-# You may serialize the following tree:
-#
-#     1
-#    / \
-#   2   3
-#      / \
-#     4   5
-#
-# as "[1,2,3,null,null,4,5]"
+# Input: root = [1,2,3,null,null,4,5]
+# Output: [1,2,3,null,null,4,5]
 #
 #
-# Clarification: The above format is the same as how LeetCode serializes a binary tree. You do not necessarily need to follow this format, so please be creative and come up with different approaches yourself.
+# Example 2:
 #
-# Note: Do not use class member/global/static variables to store states. Your serialize and deserialize algorithms should be stateless.
+#
+# Input: root = []
+# Output: []
+#
+#
+# Example 3:
+#
+#
+# Input: root = [1]
+# Output: [1]
+#
+#
+# Example 4:
+#
+#
+# Input: root = [1,2]
+# Output: [1,2]
+#
+#
+#  
+# Constraints:
+#
+#
+# 	The number of nodes in the tree is in the range [0, 104].
+# 	-1000 <= Node.val <= 1000
+#
 #
 
 

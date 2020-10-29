@@ -22,47 +22,40 @@
 #
 
 
-class Node:
-    def __init__(self, val):
-        self.val = val
-        self.children = {}
-
 class Trie:
+
     def __init__(self):
         """
         Initialize your data structure here.
         """
-        self.root = Node('')
-        self.end = -1
+        self.trie = {}
         
 
     def insert(self, word: str) -> None:
         """
         Inserts a word into the trie.
         """
-        node = self.root
-        for c in word:
-            if c in node.children:
-                node = node.children[c]
+        node = self.trie;
+        for i in word:
+            if i in node:
+                node = node[i]
             else:
-                node.children[c] = Node(c)
-                node = node.children[c]
-        node.children[self.end] = None
-            
-            
+                node[i] = {}
+                node = node[i]
+        node['end'] = True
         
 
     def search(self, word: str) -> bool:
         """
         Returns if the word is in the trie.
         """
-        node = self.root
-        for c in word:
-            if c in node.children:
-                node = node.children[c]
+        node = self.trie
+        for i in word:
+            if i in node:
+                node = node[i]
             else:
                 return False
-        if self.end in node.children:
+        if 'end' in node:
             return True
         else:
             return False
@@ -72,10 +65,10 @@ class Trie:
         """
         Returns if there is any word in the trie that starts with the given prefix.
         """
-        node = self.root
-        for c in prefix:
-            if c in node.children:
-                node = node.children[c]
+        node = self.trie
+        for i in prefix:
+            if i in node:
+                node = node[i]
             else:
                 return False
         return True

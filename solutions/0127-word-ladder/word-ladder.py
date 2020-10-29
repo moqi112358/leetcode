@@ -2,7 +2,7 @@
 #
 #
 # 	Only one letter can be changed at a time.
-# 	Each transformed word must exist in the word list. Note that beginWord is not a transformed word.
+# 	Each transformed word must exist in the word list.
 #
 #
 # Note:

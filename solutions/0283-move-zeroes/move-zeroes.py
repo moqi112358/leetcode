@@ -19,16 +19,13 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        i, j = -1, 0
+        i, j = 0, 0
         while j < len(nums):
-            if nums[j] != 0:
-                if i != -1:
+            if nums[i] != 0:
+                i += 1
+                j += 1
+            elif nums[i] == 0:
+                if nums[j] != 0:
                     nums[i], nums[j] = nums[j], nums[i]
-                    i += 1
-                j += 1
-            else:
-                if i == -1:
-                    i = j
-                j += 1
-                
-        
+                else:
+                    j += 1

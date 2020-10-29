@@ -24,8 +24,7 @@
 #
 #  
 #
-# Note:
-# Bonus points if you could solve it both recursively and iteratively.
+# Follow up: Solve it both recursively and iteratively.
 #
 
 

@@ -14,48 +14,35 @@
 # Input: a = "1010", b = "1011"
 # Output: "10101"
 #
+#  
+# Constraints:
+#
+#
+# 	Each string consists only of '0' or '1' characters.
+# 	1 <= a.length, b.length <= 10^4
+# 	Each string is either "0" or doesn't contain any leading zero.
+#
+#
 
 
 class Solution:
-    def addBinary(self, a, b):
-        """
-        :type a: str
-        :type b: str
-        :rtype: str
-        """
-        m, n = len(a) - 1, len(b) - 1
-        tag = 0
-        res = ''
-        while m >= 0 and n >= 0:
-            tmp = int(a[m]) + int(b[n]) + tag
-            if tmp >= 2:
-                tmp -= 2
-                tag = 1
-            else:
-                tag = 0
-            res = str(tmp) + res
-            m -= 1
-            n -= 1
-        if m < 0:
-            while n >= 0:
-                tmp = int(b[n]) + tag
-                if tmp >= 2:
-                    tmp -= 2
-                    tag = 1
-                else:
-                    tag = 0
-                res = str(tmp) + res
-                n -= 1
-        if n < 0:
-            while m >= 0:
-                tmp = int(a[m]) + tag
-                if tmp >= 2:
-                    tmp -= 2
-                    tag = 1
-                else:
-                    tag = 0
-                res = str(tmp) + res
-                m -= 1
-        if tag == 1:
-            res = '1' + res
-        return res
+    def addBinary(self, a: str, b: str) -> str:
+#         l = max(len(a), len(b))
+#         a = "0" * (l - len(a)) + a
+#         b = "0" * (l - len(b)) + b
+#         c = 0
+#         res = ""
+#         for i in range(l-1, -1, -1):
+#             tmp = int(a[i]) + int(b[i]) + c
+#             if tmp >= 2:
+#                 tmp -= 2
+#                 c = 1
+#             else:
+#                 c = 0
+#             res += str(tmp)
+#         if c == 1:
+#             res += "1"
+#         return res[::-1]
+        res = int(a, 2) + int(b, 2)
+        return str(bin(res))[2:]
+            

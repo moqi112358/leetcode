@@ -1,59 +1,69 @@
-# Sort a linked list in O(n log n) time using constant space complexity.
+# Given the head of a linked list, return the list after sorting it in ascending order.
 #
+# Follow up: Can you sort the linked list in O(n logn) time and O(1) memory (i.e. constant space)?
+#
+#  
 # Example 1:
 #
 #
-# Input: 4->2->1->3
-# Output: 1->2->3->4
+# Input: head = [4,2,1,3]
+# Output: [1,2,3,4]
 #
 #
 # Example 2:
 #
 #
-# Input: -1->5->3->4->0
-# Output: -1->0->3->4->5
+# Input: head = [-1,5,3,4,0]
+# Output: [-1,0,3,4,5]
+#
+#
+# Example 3:
+#
+#
+# Input: head = []
+# Output: []
+#
+#
+#  
+# Constraints:
+#
+#
+# 	The number of nodes in the list is in the range [0, 5 * 104].
+# 	-105 <= Node.val <= 105
+#
 #
 
 
 # Definition for singly-linked list.
 # class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
-
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 class Solution:
-    def sortList(self, head: ListNode) -> ListNode:
-        if not head or head.next is None:
-            return head
-        fast, slow = head.next, head
-        while fast and fast.next:
-            fast = fast.next.next
-            slow = slow.next
-        first = head
-        second = slow.next
-        slow.next = None
-        left, right = self.sortList(first), self.sortList(second)
+    def sortList(self, head):
+        if not head or not head.next: return head
+        mid = self.getMid(head)
+        left = self.sortList(head)
+        right = self.sortList(mid)
         return self.merge(left, right)
     
-    def merge(self, left, right):
-        if not left:
-            return right
-        if not right:
-            return left
-        dummy = ListNode(0)
-        node = dummy
-        while left and right:
-            if left.val > right.val:
-                node.next = right
-                right = right.next
-                node = node.next
+    def getMid(self, head):
+        slow, fast = head, head
+        while fast.next and fast.next.next:
+            slow = slow.next
+            fast = fast.next.next
+        mid = slow.next
+        slow.next = None
+        return mid
+    
+    def merge(self, head1, head2):
+        dummy = tail = ListNode(None)
+        while head1 and head2:
+            if head1.val < head2.val:
+                tail.next, tail, head1 = head1, head1, head1.next
             else:
-                node.next = left
-                left = left.next
-                node = node.next
-        if left:
-            node.next = left
-        elif right:
-            node.next = right
+                tail.next, tail, head2 = head2, head2, head2.next
+    
+        tail.next = head1 or head2
         return dummy.next
         

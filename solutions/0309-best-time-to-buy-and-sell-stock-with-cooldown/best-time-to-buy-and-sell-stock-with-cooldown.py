@@ -47,6 +47,8 @@ class Solution:
         if not prices:
             return 0
         dp = [[0] * 2 for i in range(len(prices) + 1)]
+        # dp[i][state] - the money of the end of the day i
+        # price[i-1] price of day i
         # 0 - have a stock
         # 1 - do not have a stock
         dp[1][0] = -prices[0]

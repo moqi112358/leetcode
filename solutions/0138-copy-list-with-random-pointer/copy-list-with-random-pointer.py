@@ -47,7 +47,7 @@
 #
 # 	-10000 <= Node.val <= 10000
 # 	Node.random is null or pointing to a node in the linked list.
-# 	Number of Nodes will not exceed 1000.
+# 	The number of nodes will not exceed 1000.
 #
 #
 

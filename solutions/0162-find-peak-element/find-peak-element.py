@@ -22,9 +22,7 @@
 #              or index number 5 where the peak element is 6.
 #
 #
-# Note:
-#
-# Your solution should be in logarithmic complexity.
+# Follow up: Your solution should be in logarithmic complexity.
 #
 
 

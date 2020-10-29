@@ -22,6 +22,13 @@
 #    2     1         2                 3
 #
 #
+#  
+# Constraints:
+#
+#
+# 	0 <= n <= 8
+#
+#
 
 
 # Definition for a binary tree node.

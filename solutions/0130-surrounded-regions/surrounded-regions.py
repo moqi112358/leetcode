@@ -44,7 +44,6 @@ class Solution:
                 self.dfs(0,i,m,n,board)
             if board[m-1][i] == 'O':
                 self.dfs(m-1,i,m,n,board)
-        print(board)
         for i in range(m):
             for j in range(n):
                 if board[i][j] == 'O':

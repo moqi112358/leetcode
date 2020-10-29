@@ -5,10 +5,9 @@
 #
 # A binary tree X is flip equivalent to a binary tree Y if and only if we can make X equal to Y after some number of flip operations.
 #
-# Write a function that determines whether two binary trees are flip equivalent.  The trees are given by root nodes root1 and root2.
+# Given the roots of two binary trees root1 and root2, return true if the two trees are flip equivelent or false otherwise.
 #
 #  
-#
 # Example 1:
 #
 #
@@ -17,18 +16,40 @@
 # Explanation: We flipped at nodes with values 1, 3, and 5.
 #
 #
+# Example 2:
+#
+#
+# Input: root1 = [], root2 = []
+# Output: true
+#
+#
+# Example 3:
+#
+#
+# Input: root1 = [], root2 = [1]
+# Output: false
+#
+#
+# Example 4:
+#
+#
+# Input: root1 = [0,null,1], root2 = []
+# Output: false
+#
+#
+# Example 5:
+#
+#
+# Input: root1 = [0,null,1], root2 = [0,1]
+# Output: true
+#
 #
 #  
-#
-# Note:
-#
-#
-# 	Each tree will have at most 100 nodes.
-# 	Each value in each tree will be a unique integer in the range [0, 99].
+# Constraints:
 #
 #
-#
-#  
+# 	The number of nodes in each tree is in the range [0, 100].
+# 	Each tree will have unique node values in the range [0, 99].
 #
 #
 

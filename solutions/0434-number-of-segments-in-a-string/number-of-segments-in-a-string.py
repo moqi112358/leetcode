@@ -1,11 +1,44 @@
-# Count the number of segments in a string, where a segment is defined to be a contiguous sequence of non-space characters.
+# You are given a string s, return the number of segments in the string. 
 #
-# Please note that the string does not contain any non-printable characters.
+# A segment is defined to be a contiguous sequence of non-space characters.
 #
-# Example:
+#  
+# Example 1:
 #
-# Input: "Hello, my name is John"
+#
+# Input: s = "Hello, my name is John"
 # Output: 5
+# Explanation: The five segments are ["Hello,", "my", "name", "is", "John"]
+#
+#
+# Example 2:
+#
+#
+# Input: s = "Hello"
+# Output: 1
+#
+#
+# Example 3:
+#
+#
+# Input: s = "love live! mu'sic forever"
+# Output: 4
+#
+#
+# Example 4:
+#
+#
+# Input: s = ""
+# Output: 0
+#
+#
+#  
+# Constraints:
+#
+#
+# 	0 <= s.length <= 300
+# 	s consists of lower-case and upper-case English letters, digits or one of the following characters "!@#$%^&*()_+-=',.:".
+# 	The only space character in s is ' '.
 #
 #
 

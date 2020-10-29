@@ -22,12 +22,12 @@
 # The falling path with the smallest sum is [1,4,7], so the answer is 12.
 #
 #  
-#
-# Note:
+# Constraints:
 #
 #
 # 	1 <= A.length == A[0].length <= 100
 # 	-100 <= A[i][j] <= 100
+#
 #
 
 

@@ -80,21 +80,30 @@
 # 
 # 
 #
+# class Solution:
+#     def arrangeCoins(self, n):
+#         n = 2 * n
+#         i = 1
+#         # while i * (i + 1) <= n:
+#         #     i += 1
+#         # return i - 1
+#         i, j = 0, n
+#         while i < j:
+#             m = int((i+j)/2)
+#             if m * (m+1) <= n:
+#                 i = m + 1
+#             elif m * (m+1) > n:
+#                 j = m - 1
+#         return i if i  * (i + 1) <= n else i - 1
 class Solution:
     def arrangeCoins(self, n):
         n = 2 * n
-        i = 1
+        import math
         # while i * (i + 1) <= n:
         #     i += 1
         # return i - 1
-        i, j = 0, n
-        while i < j:
-            m = int((i+j)/2)
-            if m * (m+1) <= n:
-                i = m + 1
-            elif m * (m+1) > n:
-                j = m - 1
-        return i if i  * (i + 1) <= n else i - 1
+        res = int(math.sqrt(n))
+        return res - 1 if res * (res + 1) > n else res 
 
 
 

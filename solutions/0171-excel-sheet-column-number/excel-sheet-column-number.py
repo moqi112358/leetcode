@@ -36,6 +36,15 @@
 # Input: "ZY"
 # Output: 701
 #
+#  
+# Constraints:
+#
+#
+# 	1 <= s.length <= 7
+# 	s consists only of uppercase English letters.
+# 	s is between "A" and "FXSHRXW".
+#
+#
 
 
 class Solution(object):

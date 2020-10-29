@@ -14,18 +14,8 @@
 
 
 class Solution:
-    def addDigits(self, num):
-        """
-        :type num: int
-        :rtype: int
-        """
-        while num >= 10:
-            num = self.helper(num)
-        return num
-    def helper(self, num):
-        res = 0
-        while num >= 10:
-            res += num % 10
-            num = num // 10
-        res += num
-        return res
+    def addDigits(self, num: int) -> int:
+        if len(str(num)) == 1:
+            return num
+        return self.addDigits(sum([int(i) for i in list(str(num))]))
+        
