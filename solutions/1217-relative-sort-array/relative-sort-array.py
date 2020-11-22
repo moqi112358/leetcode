@@ -11,9 +11,9 @@
 # Constraints:
 #
 #
-# 	arr1.length, arr2.length <= 1000
+# 	1 <= arr1.length, arr2.length <= 1000
 # 	0 <= arr1[i], arr2[i] <= 1000
-# 	Each arr2[i] is distinct.
+# 	All the elements of arr2 are distinct.
 # 	Each arr2[i] is in arr1.
 #
 #

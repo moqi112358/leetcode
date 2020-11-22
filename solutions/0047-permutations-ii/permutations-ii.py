@@ -30,16 +30,15 @@
 
 class Solution:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
-        self.res = []
-        self.helper(nums, [])
-        return self.res
-
-    def helper(self, nums, l):
-        if len(nums) == 0:
-            self.res.append(l)
-            return
-        visited = set()
+        if not nums:
+            return []
+        if len(nums) == 1:
+            return [nums]
+        res = []
+        nums.sort()
         for i in range(len(nums)):
-            if nums[i] not in visited or i == 0:
-                self.helper(nums[:i]+nums[i+1:], l + [nums[i]])
-            visited.add(nums[i])
+            if i == 0 or nums[i] != nums[i-1]:
+                p = self.permuteUnique(nums[:i] + nums[i+1:])
+                for j in p:
+                    res.append([nums[i]] + j)
+        return res

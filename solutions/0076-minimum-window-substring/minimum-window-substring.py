@@ -1,19 +1,25 @@
-# Given a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n).
+# Given two strings s and t, return the minimum window in s which will contain all the characters in t. If there is no such window in s that covers all characters in t, return the empty string "".
 #
-# Example:
+# Note that If there is such a window, it is guaranteed that there will always be only one unique minimum window in s.
 #
-#
-# Input: S = "ADOBECODEBANC", T = "ABC"
+#  
+# Example 1:
+# Input: s = "ADOBECODEBANC", t = "ABC"
 # Output: "BANC"
+# Example 2:
+# Input: s = "a", t = "a"
+# Output: "a"
+#
+#  
+# Constraints:
 #
 #
-# Note:
+# 	1 <= s.length, t.length <= 105
+# 	s and t consist of English letters.
 #
 #
-# 	If there is no such window in S that covers all characters in T, return the empty string "".
-# 	If there is such window, you are guaranteed that there will always be only one unique minimum window in S.
-#
-#
+#  
+# Follow up: Could you find an algorithm that runs in O(n) time?
 
 
 class Solution:
