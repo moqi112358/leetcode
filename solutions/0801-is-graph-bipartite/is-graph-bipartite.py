@@ -28,7 +28,7 @@
 #
 #
 # 	1 <= graph.length <= 100
-# 	0 <= graphp[i].length < 100
+# 	0 <= graph[i].length < 100
 # 	0 <= graph[i][j] <= graph.length - 1
 # 	graph[i][j] != i
 # 	All the values of graph[i] are unique.

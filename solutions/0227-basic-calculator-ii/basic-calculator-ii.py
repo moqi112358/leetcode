@@ -1,94 +1,90 @@
-# Implement a basic calculator to evaluate a simple expression string.
+# Given a string s which represents an expression, evaluate this expression and return its value. 
 #
-# The expression string contains only non-negative integers, +, -, *, / operators and empty spaces  . The integer division should truncate toward zero.
+# The integer division should truncate toward zero.
 #
+#  
 # Example 1:
-#
-#
-# Input: "3+2*2"
+# Input: s = "3+2*2"
 # Output: 7
-#
-#
 # Example 2:
-#
-#
-# Input: " 3/2 "
+# Input: s = " 3/2 "
 # Output: 1
-#
 # Example 3:
-#
-#
-# Input: " 3+5 / 2 "
+# Input: s = " 3+5 / 2 "
 # Output: 5
 #
+#  
+# Constraints:
 #
-# Note:
 #
+# 	1 <= s.length <= 3 * 105
+# 	s consists of integers and operators ('+', '-', '*', '/') separated by some number of spaces.
+# 	s represents a valid expression.
+# 	All the integers in the expression are non-negative integers in the range [0, 231 - 1].
+# 	The answer is guaranteed to fit in a 32-bit integer.
 #
-# 	You may assume that the given expression is always valid.
-# 	Do not use the eval built-in library function.
 #
 
 
-class Solution:
-    # Method 1
+# class Solution:
 #     def calculate(self, s: str) -> int:
-#         if not s:
-#             return None
 #         stack = []
-#         l = []
-#         i, nums = 0, ''
-#         while i < len(s):
-#             if s[i] not in '+-*/' and s[i] != ' ':
-#                 nums += s[i]
-#             elif s[i] == ' ':
-#                 i += 1
+#         calfirst = 0
+#         num = ''
+#         s = ''.join([i for i in s if i != ' '])
+#         s += '+0'
+#         for i in s:
+#             if i in [str(i) for i in range(0, 10)]:
+#                 num += i
 #                 continue
-#             elif s[i] in '+-*/':
-#                 l.append(int(nums))
-#                 l.append(s[i])
-#                 nums = ''
-#             i += 1
-#         if nums != '':
-#             l.append(int(nums))
-        
-#         i = 0
-#         while i < len(l):
-#             if l[i] == '+':
-#                 i += 1
-#             elif l[i] == '-':
-#                 stack.append(-1 * l[i+1])
-#                 i += 2
-#             elif l[i] == '*':
-#                 stack[-1] = stack[-1] * l[i+1]
-#                 i += 2
-#             elif l[i] == '/':
-#                 stack[-1] = int(stack[-1] / l[i+1])
-#                 i += 2
-#             else:
-#                 stack.append(l[i])
-#                 i += 1
-#         return sum(stack)
+#             if i == '*' or i == '/' or i == '+' or i == '-':
+#                 if calfirst == 0:
+#                     stack.append(int(num))
+#                     num = ''
+#                     stack.append(i)
+#                 else:
+#                     sign = stack.pop()
+#                     last_num = stack.pop()
+#                     if sign == '*':
+#                         stack.append(int(num) * last_num)
+#                     elif sign == '/':
+#                         stack.append(last_num // int(num))
+#                     stack.append(i)
+#                     num = ''
+#                 if i == '+' or i == '-':
+#                     calfirst = 0
+#                 else:
+#                     calfirst = 1
+#         res = 0
+#         sign = '+'
+#         for i in stack:
+#             if i != '+' and i != '-':
+#                 if sign == '+':
+#                     res += i
+#                 else:
+#                     res -= i
+#             if i == '+':
+#                 sign = '+'
+#             if i == '-':
+#                 sign = '-'
+#         return res
+class Solution:
     def calculate(self, s: str) -> int:
-        num,Op,stack = 0,'+',[]
-        for i,e in enumerate(s):
-            if e.isdigit():
-                num = num*10+int(e)
-            if e in '+-*/' or i == len(s)-1:
-                if Op == '+':
-                    stack.append(num)
-                if Op == '-':
-                    stack.append(-num)
-                if Op == '*':
-                    stack[-1] = stack[-1] * num
-                if Op == '/':
-                    stack[-1] = int(stack[-1] / num)
-                Op = e
-                num = 0
-            
-                
+        val = 0
+        stack = []
+        op = '+'        
+        for c in s+'+':
+            if c.isdigit():
+                val = val*10+ int(c)
+            elif c in '+-*/':
+                if op == '+':
+                    stack.append(val)
+                elif op == '-':
+                    stack.append(-val)
+                elif op == '*':
+                    stack[-1] = stack[-1]*val
+                elif op == '/':
+                    stack[-1] = int(stack[-1]/val)
+                op = c
+                val = 0
         return sum(stack)
-        
-        
-        
-        

@@ -1,3 +1,6 @@
+# -*- coding:utf-8 -*-
+
+
 # You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
 #
 # You may assume the two numbers do not contain any leading zero, except the number 0 itself.
@@ -33,28 +36,63 @@
 # 	0 <= Node.val <= 9
 # 	It is guaranteed that the list represents a number that does not have leading zeros.
 #
-#
 
 
 # Definition for singly-linked list.
-# class ListNode:
+# class ListNode(object):
 #     def __init__(self, x):
 #         self.val = x
 #         self.next = None
 
-class Solution:
+class Solution(object):
     def addTwoNumbers(self, l1, l2):
         """
         :type l1: ListNode
         :type l2: ListNode
         :rtype: ListNode
         """
-        extra = 0
-        pre = dummy = ListNode(-1)
-        while l1 or l2 or extra:
-            num = (l1 and l1.val or 0) + (l2 and l2.val or 0) + extra
-            extra = 1 if num > 9 else 0 
-            if l1: l1 = l1.next
-            if l2: l2 = l2.next
-            pre.next = pre = ListNode(num % 10)
-        return dummy.next
+        dummy = ListNode(0)
+        head = ListNode(0)
+        dummy.next = head
+        tmp, flag = 0, 0
+        while l1 and l2:
+            tmp = l1.val + l2.val + flag
+            if tmp >= 10:
+                flag = 1
+                tmp -= 10
+            else:
+                flag = 0
+            tmp_node = ListNode(tmp)
+            head.next = tmp_node
+            head = head.next
+            l1 = l1.next
+            l2 = l2.next
+        if l1:
+            while l1:
+                tmp = l1.val + flag
+                if tmp >= 10:
+                    flag = 1
+                    tmp -= 10
+                else:
+                    flag = 0
+                tmp_node = ListNode(tmp)
+                head.next = tmp_node
+                head = head.next
+                l1 = l1.next
+        if l2:
+            while l2:
+                tmp = l2.val + flag
+                if tmp >= 10:
+                    flag = 1
+                    tmp -= 10
+                else:
+                    flag = 0
+                tmp_node = ListNode(tmp)
+                head.next = tmp_node
+                head = head.next
+                l2 = l2.next
+        if flag == 1:
+            tmp_node = ListNode(flag)
+            head.next = tmp_node
+            head = head.next
+        return dummy.next.next

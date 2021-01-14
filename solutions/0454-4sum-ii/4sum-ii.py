@@ -26,18 +26,10 @@
 
 class Solution:
     def fourSumCount(self, A: List[int], B: List[int], C: List[int], D: List[int]) -> int:
-        sum1, sum2 = {}, {}
-        for i in A:
-            for j in B:
-                sum1[i+j] = sum1.get(i+j, 0) + 1
-        for i in C:
-            for j in D:
-                sum2[i+j] = sum2.get(i+j, 0) + 1
+        A_B_set = collections.Counter([i + j for i in A for j in B])
+        C_D_set = collections.Counter([i + j for i in C for j in D])
         res = 0
-        for key in sum1:
-            if -1 * key in sum2:
-                res += sum1[key] * sum2[-key]
+        for AB in A_B_set:
+            if -1 * AB in C_D_set:
+                res += A_B_set[AB] * C_D_set[-1 * AB]
         return res
-        # better
-        # AB = Counter(a+b for a in A for b in B)
-        # return sum(AB[-c-d] for c in C for d in D)

@@ -32,16 +32,13 @@
 
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
-        if not nums:
-            return None
-        i, j = 0, len(nums) - 1
-        while i <= j:
-            mid = int((i + j) / 2)
-            if nums[mid] == target:
-                return mid
-            elif nums[mid] > target:
-                j = mid - 1
-            elif nums[mid] < target:
-                i = mid + 1
+        left, right = 0, len(nums) - 1
+        while left <= right:
+            pivot = int((left + right) / 2)
+            if nums[pivot] == target:
+                return pivot
+            if target < nums[pivot]:
+                right = pivot - 1
+            else:
+                left = pivot + 1
         return -1
-        

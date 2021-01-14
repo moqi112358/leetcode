@@ -36,9 +36,9 @@
 # Constraints:
 #
 #
-# 	1 <= node.val <= 100 for each node in the linked list and binary tree.
-# 	The given linked list will contain between 1 and 100 nodes.
-# 	The given binary tree will contain between 1 and 2500 nodes.
+# 	The number of nodes in the tree will be in the range [1, 2500].
+# 	The number of nodes in the list will be in the range [1, 100].
+# 	1 <= Node.val <= 100 for each node in the linked list and binary tree.
 #
 #
 

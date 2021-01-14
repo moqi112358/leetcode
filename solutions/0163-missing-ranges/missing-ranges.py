@@ -76,6 +76,32 @@ class Solution:
             if (i == pre + 2):
                 result.append(str(i-1))
             elif (i > pre + 2):
+                # print(i, pre+2)
                 result.append(str(pre + 1) + "->" + str(i -1))
             pre = i
         return result
+    # def findMissingRanges(self, nums: List[int], lower: int, upper: int) -> List[str]:
+    #     if not nums:
+    #         if upper == lower:
+    #             return [str(upper)]
+    #         elif upper - lower == 2:
+    #             return [str(lower+1)]
+    #         else:
+    #             return [str(lower+1)+'->'+str(upper)]
+    #     res = []
+    #     for i in range(len(nums)):
+    #         if i == 0 and nums[i] > lower:
+    #             res.append(str(lower)+'->'+str(nums[i]-1))
+    #         elif  i > upper:
+    #             res.append(str(nums[i-1])+'->'+str(upper))
+    #             return res
+    #         else:
+    #             if nums[i] - nums[i-1] <= 1:
+    #                 pass
+    #             elif nums[i] - nums[i-1] == 2:
+    #                 res.append(str(nums[i-1] + 1))
+    #             else:
+    #                 res.append(str(nums[i-1] + 1)+'->'+str(nums[i]-1))
+    #     if nums[-1] < upper:
+    #         res.append(str(nums[-1]+1)+'->'+str(upper))
+    #     return res

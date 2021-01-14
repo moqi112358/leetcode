@@ -1,3 +1,6 @@
+# -*- coding:utf-8 -*-
+
+
 # Given a binary tree, determine if it is height-balanced.
 #
 # For this problem, a height-balanced binary tree is defined as:
@@ -35,26 +38,28 @@
 # 	The number of nodes in the tree is in the range [0, 5000].
 # 	-104 <= Node.val <= 104
 #
-#
 
 
 # Definition for a binary tree node.
-# class TreeNode:
+# class TreeNode(object):
 #     def __init__(self, x):
 #         self.val = x
 #         self.left = None
 #         self.right = None
 
-class Solution:
+class Solution(object):
     def isBalanced(self, root):
-        res, _ = self.maxDepth(root)
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+        res, _ = self.helper(root)
         return res
-        
-    def maxDepth(self, root):
+    
+    def helper(self, root):
         if root is None:
             return True, 0
         else:
-            left, left_depth = self.maxDepth(root.left)
-            right, right_depth = self.maxDepth(root.right)
-            tmp = abs(left_depth - right_depth)
-            return left and right and tmp <= 1, max(left_depth, right_depth) + 1
+            b1, d1 = self.helper(root.left)
+            b2, d2 = self.helper(root.right)
+            return b1 and b2 and abs(d1 - d2) <= 1, max(d1, d2) + 1

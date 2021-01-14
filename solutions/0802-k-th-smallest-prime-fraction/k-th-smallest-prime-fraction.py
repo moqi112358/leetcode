@@ -1,26 +1,38 @@
-# A sorted list A contains 1, plus some number of primes.  Then, for every p < q in the list, we consider the fraction p/q.
+# You are given a sorted integer array arr containing 1 and prime numbers, where all the integers of arr are unique. You are also given an integer k.
 #
-# What is the K-th smallest fraction considered?  Return your answer as an array of ints, where answer[0] = p and answer[1] = q.
+# For every i and j where 0 <= i < j < arr.length, we consider the fraction arr[i] / arr[j].
+#
+# Return the kth smallest fraction considered. Return your answer as an array of integers of size 2, where answer[0] == arr[i] and answer[1] == arr[j].
+#
+#  
+# Example 1:
 #
 #
-# Examples:
-# Input: A = [1, 2, 3, 5], K = 3
-# Output: [2, 5]
-# Explanation:
-# The fractions to be considered in sorted order are:
-# 1/5, 1/3, 2/5, 1/2, 3/5, 2/3.
+# Input: arr = [1,2,3,5], k = 3
+# Output: [2,5]
+# Explanation: The fractions to be considered in sorted order are:
+# 1/5, 1/3, 2/5, 1/2, 3/5, and 2/3.
 # The third fraction is 2/5.
 #
-# Input: A = [1, 7], K = 1
-# Output: [1, 7]
+#
+# Example 2:
 #
 #
-# Note:
+# Input: arr = [1,7], k = 1
+# Output: [1,7]
 #
 #
-# 	A will have length between 2 and 2000.
-# 	Each A[i] will be between 1 and 30000.
-# 	K will be between 1 and A.length * (A.length - 1) / 2.
+#  
+# Constraints:
+#
+#
+# 	2 <= arr.length <= 1000
+# 	1 <= arr[i] <= 3 * 104
+# 	arr[0] == 1
+# 	arr[i] is a prime number for i > 0.
+# 	All the numbers of arr are unique and sorted in strictly increasing order.
+# 	1 <= k <= arr.length * (arr.length - 1) / 2
+#
 #
 
 

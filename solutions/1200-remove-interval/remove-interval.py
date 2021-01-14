@@ -1,8 +1,8 @@
-# Given a sorted list of disjoint intervals, each interval intervals[i] = [a, b] represents the set of real numbers x such that a <= x < b.
+# A set of real numbers can be represented as the union of several disjoint intervals, where each interval is in the form [a, b). A real number x is in the set if one of its intervals [a, b) contains x (i.e. a <= x < b).
 #
-# We remove the intersections between any interval in intervals and the interval toBeRemoved.
+# You are given a sorted list of disjoint intervals intervals representing a set of real numbers as described above, where intervals[i] = [ai, bi] represents the interval [ai, bi). You are also given another interval toBeRemoved.
 #
-# Return a sorted list of intervals after all such removals.
+# Return the set of real numbers with the interval toBeRemoved removed from intervals. In other words, return the set of real numbers such that every x in the set is in intervals but not in toBeRemoved. Your answer should be a sorted list of disjoint intervals as described above.
 #
 #  
 # Example 1:
@@ -30,8 +30,8 @@
 # Constraints:
 #
 #
-# 	1 <= intervals.length <= 10^4
-# 	-10^9 <= intervals[i][0] < intervals[i][1] <= 10^9
+# 	1 <= intervals.length <= 104
+# 	-109 <= ai < bi <= 109
 #
 #
 
